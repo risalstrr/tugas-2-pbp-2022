@@ -126,8 +126,9 @@ USE_TZ = True
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-STATIC_URL = os.environ.get("DJANGO_STATIC_URL", "/static/")
-STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", "./static/")
+STATIC_URL = '/static/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
@@ -135,7 +136,8 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 for directory in [*STATICFILES_DIRS, STATIC_ROOT]:
-    os.mkdir(directory)
+    if not os.path.exists(directory):
+        os.makedirs(directory, exist_ok=True)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
