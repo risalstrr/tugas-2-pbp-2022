@@ -22,4 +22,4 @@ urlpatterns = [
     path('katalog/', include('katalog.urls')),
 ]
 
-# TODO: Implement Routings Here
+# TODO: Implement Routings  Here
