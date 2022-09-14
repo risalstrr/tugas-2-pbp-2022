@@ -6,7 +6,7 @@ from katalog.models import CatalogItem
 # ini tdd
 
 
-class AnimalTestCase(TestCase):
+class KatalogTestCase(TestCase):
     def setUp(self):
         CatalogItem.objects.create(item_name="supreme", item_price=100, item_stock=3,
                                    description="Oriiiii", rating=0, item_url="https://www.supremenewyork.com/")
