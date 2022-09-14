@@ -7,7 +7,7 @@ NPM : 21066555274
 Kelas: PBP - C
 
 Link Deployment: https://tugas-2-pbp-2022.herokuapp.com/katalog/
-<br/>
+</br>
 
 ## Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html
 
