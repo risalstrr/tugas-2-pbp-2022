@@ -12,7 +12,7 @@ Link Deployment: https://tugas-2-pbp-2022.herokuapp.com/katalog/
 ## Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html
 
 </br>
-![gambarBagan](gambarBagan.png)
+![gambarBagan](https://github.com/risalstrr/tugas-2-pbp-2022/blob/main/images/gambarBagan.png)
 </br>
 
 Django merupakan sebuah framework web development dengan menggunakan Bahasa python serta berpola Model Template Views (MVT). Ketika user melakukan request, maka url yang diberikan akan masuk ke URLConf. Jika url yang diberikan sudah sesuai, kemudian view (di views.py) akan memberikan suatu response kepada user berupa tampilan yang akan ditampilkan di template (yang berisi file.html). Hal ini dinamakan static website. Berbeda dengan dinamis website yang content dari websitenya berubah-ubah berdasarkan data dari database nya. Proses dinamis website, yaitu pertama, user akan melakukan suatu request dan akan dilakukan proses screening di URLConf untuk mengecek apakah request yang dikirim user ada atau tidak. Apabila user membutuhkan suatu data dari database, maka views akan mencari data yang dicari user di database melalui models (representasi dari sebuah database). Models berfungsi untuk menghubungkan views dengan database dan akan mengembalikan data yang di request oleh user. Lalu, views akan mengirimkan data tersebut ke templates (file.html)
