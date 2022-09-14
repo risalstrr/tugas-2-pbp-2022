@@ -11,6 +11,7 @@ Link Deployment: https://tugas-2-pbp-2022.herokuapp.com/katalog/
 
 ## Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html
 
+</br>
 ![gambarBagan] (/images/gambarBagan.png)
 </br>
 
@@ -23,5 +24,7 @@ Ketika kita ingin mengerjakan suatu Python project, maka kita membutuhkan sebuah
 ## Jelaskan bagaimana cara kamu mengimplementasikan poin 1 sampai dengan 4 di atas.
 
 Pada saat pembuatan aplikasi baru pada django project, pertama kita harus membuat url (terdapat pada folder django project atau root folder) yang akan dijadikan sebagai routing pada saat user ingin mengunjungi halamannya. Kemudian, membuat sebuah folder templates yang berisi file.html yang akan menampilkan tampilan halaman kepada user. Pada file urls.py yang ada di django app, import path yang berada di package django.urls dan import function yang terdapat di views (dalam project saya function bernama show_katalog). Function tersebut melakukan suatu pengambilan data dari models dengan perintah CatalogItem.objects.all() untuk mendapatkan data-data dari models yang berasal dari database. Kemudian, data-data tersebut di-render ke halaman html yang akan dituju dan halaman tersebut dapat menampilkan/memetakan data-data dalam bentuk response dari views kepada user. Pada tahap akhir, dilakukan deployment ke Heroku. Pertama, membuat sebuah repositori baru di GitHub yang akan digunakan sebagai repositori aplikasi Django. Kedua, lakukan git init pada direktori django yang telah dikerjakan sebelumnya dan atur origin dari repositori git lokal baru tersebut ke repositori GitHub yang telah dibuat. Ketiga, buatlah sebuah file bernama Procfile, dpl.yml, dan .gitignore. Lalu Add, commit, dan push perubahan yang telah dilakukan ke GitHub repo kita. Setelah melakukan prosedur tersebut, aplikasi Django siap untuk di-deploy ke Heroku. Tambahkan variabel repository secret baru untuk melakukan deployment. Seperti:
+</br>
 HEROKU_API_KEY: <VALUE_API_KEY_ANDA>
+</br>
 HEROKU_APP_NAME: <NAMA_APLIKASI_HEROKU_ANDA>
