@@ -1,8 +1,14 @@
 # Template Proyek Django PBP
 
+Nama : Risa Lestari
+
+NPM : 2106655274
+
+Kelas: C
+
 Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
 
-*Read this in other languages: [Indonesian](README.md), [English](README.en.md)*
+_Read this in other languages: [Indonesian](README.md), [English](README.en.md)_
 
 ## Pendahuluan
 
@@ -21,12 +27,14 @@ Apabila kamu ingin menggunakan repositori ini sebagai repositori awalan yang nan
    ```shell
    git clone <URL ke repositori di GitHub> <path ke suatu lokasi di filesystem>
    ```
+
 3. Masuk ke dalam repositori yang sudah di-_clone_ dan jalankan perintah berikut
    untuk menyalakan _virtual environment_:
 
    ```shell
    python -m venv env
    ```
+
 4. Nyalakan environment dengan perintah berikut:
 
    ```shell
@@ -35,6 +43,7 @@ Apabila kamu ingin menggunakan repositori ini sebagai repositori awalan yang nan
    # Linux/Unix, e.g. Ubuntu, MacOS
    source env/bin/activate
    ```
+
 5. Install dependencies yang dibutuhkan untuk menjalankan aplikasi dengan perintah berikut:
 
    ```shell
@@ -47,11 +56,12 @@ Apabila kamu ingin menggunakan repositori ini sebagai repositori awalan yang nan
    ```shell
    python manage.py runserver
    ```
+
 7. Bukalah `http://localhost:8000` pada browser favoritmu untuk melihat apakah aplikasi sudah berjalan dengan benar.
 
-## Contoh Deployment 
+## Contoh Deployment
 
-Pada template ini, deployment dilakukan dengan memanfaatkan GitHub Actions sebagai _runner_ dan Heroku sebagai platform Hosting aplikasi. 
+Pada template ini, deployment dilakukan dengan memanfaatkan GitHub Actions sebagai _runner_ dan Heroku sebagai platform Hosting aplikasi.
 
 Untuk melakukan deployment, kamu dapat melihat instruksi yang ada pada [Tutorial 0](https://pbp-fasilkom-ui.github.io/ganjil-2023/assignments/tutorial/tutorial-0).
 
