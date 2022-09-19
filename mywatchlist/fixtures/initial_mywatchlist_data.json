@@ -1,0 +1,112 @@
+[{
+        "model": "mywatchlist.mywatchlist",
+        "pk": 1,
+        "fields": {
+            "watched": true,
+            "title": "I Used to Be Famous",
+            "rating": 4,
+            "release_date": "2022-07-06",
+            "review": "Sweet British drama has neurodiverse lead, strong language."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 2,
+        "fields": {
+            "watched": false,
+            "title": "Pearl",
+            "rating": 5,
+            "release_date": "2022-09-07",
+            "review": "Lots of blood and gore in darkly feminist horror prequel."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 3,
+        "fields": {
+            "watched": true,
+            "title": "Drifting Home",
+            "rating": 3,
+            "release_date": "2022-05-24",
+            "review": "Some violence, peril in imaginative coming-of-age anime."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 4,
+        "fields": {
+            "watched": false,
+            "title": "Goodbye, Don Glees!",
+            "rating": 2,
+            "release_date": "2022-08-24",
+            "review": "Touching coming-of-age friendship tale has a little edge."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 5,
+        "fields": {
+            "watched": true,
+            "title": "Hell of a Cruise",
+            "rating": 5,
+            "release_date": "2022-07-15",
+            "review": "Docu showcases cruise line's failures; some violence."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 6,
+        "fields": {
+            "watched": false,
+            "title": "Broad Peak",
+            "rating": 1,
+            "release_date": "2022-08-25",
+            "review": "Slow mountain climbing drama has nudity, sex, language."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 7,
+        "fields": {
+            "watched": true,
+            "title": "House of Darkness",
+            "rating": 3,
+            "release_date": "2022-06-01",
+            "review": "Language, gore in clever, low-budget relationship tale."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 8,
+        "fields": {
+            "watched": false,
+            "title": "Paranormal Activity: Next of Kin",
+            "rating": 2,
+            "release_date": "2022-06-29",
+            "review": "Tired sequel in gory found-footage horror series."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 9,
+        "fields": {
+            "watched": true,
+            "title": "Lightyear",
+            "rating": 2,
+            "release_date": "2022-07-27",
+            "review": "Buzz origin story is exceptionally animated and inclusive."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 10,
+        "fields": {
+            "watched": false,
+            "title": "Where the Crawdads Sing",
+            "rating": 4,
+            "release_date": "2022-07-24",
+            "review": "Standout performances in uneven, trauma-filled adaptation."
+        }
+    }
+
+]
