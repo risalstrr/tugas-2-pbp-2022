@@ -14,13 +14,6 @@ def show_mywatchlist(request):
     }
     return render(request, "mywatchlist.html", context)
 
-# Mengembalikan Data dalam Bentuk HTML
-
-
-def mywatchlist_html(request):
-    data_mywatchlist = MyWatchList.objects.all()
-    return HttpResponse(serializers.serialize("html", data_mywatchlist), content_type="application/html")
-
 
 # Mengembalikan Data dalam Bentuk XML
 
