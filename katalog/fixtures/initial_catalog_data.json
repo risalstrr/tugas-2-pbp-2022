@@ -1,5 +1,4 @@
-[
-    {
+[{
         "model": "katalog.catalogitem",
         "pk": 1,
         "fields": {
