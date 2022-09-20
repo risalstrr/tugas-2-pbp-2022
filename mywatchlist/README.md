@@ -1,6 +1,12 @@
-Nama: Risa Lestari
+# TUGAS 3 PBP
+
+Nama : Risa Lestari
+
 NPM : 2106655274
-Link Deploy: https://tugas-2-pbp-2022.herokuapp.com/mywatchlist/
+
+Kelas: PBP - C
+
+Link Deployment: https://tugas-2-pbp-2022.herokuapp.com/mywatchlist/
 
 ## Jelaskan perbedaan antara JSON, XML, dan HTML!
 
