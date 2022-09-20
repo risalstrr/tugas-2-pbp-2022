@@ -13,7 +13,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 2,
         "fields": {
-            "watched": false,
+            "watched": true,
             "title": "Pearl",
             "rating": 5,
             "release_date": "2022-09-07",
@@ -82,7 +82,7 @@
             "watched": false,
             "title": "Paranormal Activity: Next of Kin",
             "rating": 2,
-            "release_date": "2022-06-29",
+            "release_date": "2018-06-29",
             "review": "Tired sequel in gory found-footage horror series."
         }
     },
@@ -93,7 +93,7 @@
             "watched": true,
             "title": "Lightyear",
             "rating": 2,
-            "release_date": "2022-07-27",
+            "release_date": "2020-07-27",
             "review": "Buzz origin story is exceptionally animated and inclusive."
         }
     },
@@ -106,6 +106,50 @@
             "rating": 4,
             "release_date": "2022-07-24",
             "review": "Standout performances in uneven, trauma-filled adaptation."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 11,
+        "fields": {
+            "watched": true,
+            "title": "Love in the Villa",
+            "rating": 4,
+            "release_date": "2020-01-24",
+            "review": "Predictable romantic comedy has some mild language."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 12,
+        "fields": {
+            "watched": true,
+            "title": "Fast & Feel Love",
+            "rating": 1,
+            "release_date": "2018-01-10",
+            "review": "Quirky comedy about a cup-stacking champion; language."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 13,
+        "fields": {
+            "watched": false,
+            "title": "Explorer",
+            "rating": 3,
+            "release_date": "2010-01-19",
+            "review": "Inspiring docu about iconic adventurer has injury detail."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 14,
+        "fields": {
+            "watched": true,
+            "title": "The Youth Governor",
+            "rating": 5,
+            "release_date": "2014-03-16",
+            "review": "Thoughtful docu about model government club for teens."
         }
     }
 
