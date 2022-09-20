@@ -7,10 +7,27 @@ from django.core import serializers
 
 def show_mywatchlist(request):
     data_mywatchlist = MyWatchList.objects.all()
+    countAlreadyWatched = 0
+    countNotWatched = 0
+    # fitur yang menampilkan pesan
+    status = ""
+
+    for alreadyWatched in data_mywatchlist:
+        if (alreadyWatched.watched == True):
+            countAlreadyWatched += 1
+        else:
+            countNotWatched += 1
+
+    if (countAlreadyWatched > countNotWatched):
+        status = "Selamat, kamu sudah banyak menonton!"
+    else:
+        status = "Wah, kamu masih sedikit menonton!"
+
     context = {
         'list_mywatchlist': data_mywatchlist,
         'nama': 'Risa Lestari',
-        'studentId': "2106655274"
+        'studentId': "2106655274",
+        'status': status,
     }
     return render(request, "mywatchlist.html", context)
 
