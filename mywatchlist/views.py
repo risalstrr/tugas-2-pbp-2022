@@ -18,7 +18,7 @@ def show_mywatchlist(request):
         else:
             countNotWatched += 1
 
-    if (countAlreadyWatched > countNotWatched):
+    if (countAlreadyWatched >= countNotWatched):
         status = "Selamat, kamu sudah banyak menonton!"
     else:
         status = "Wah, kamu masih sedikit menonton!"
