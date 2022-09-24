@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Assignment PBP/PBD My ToDo Lists</h1>
+<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+
+<h5>Name: {{ nama }}</h5>
+<h5>Student ID: {{ studentId }}</h5>
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
+<button>
+  <a href="{% url 'todolist:create-task' %}">Tambah Task Baru</a>
+</button>
+
+<table>
+  <tr>
+    <th>Tanggal Pembuatan Task</th>
+    <th>Judul Task</th>
+    <th>deskripsi task</th>
+  </tr>
+  {% for todolist in todolists %}
+  <tr>
+    <td>{{todolist.date}}</td>
+    <td>{{todolist.title}}</td>
+    <td>{{todolist.description}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock content %}
