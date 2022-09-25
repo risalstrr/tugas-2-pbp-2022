@@ -16,12 +16,17 @@ from todolist.models import Todolist
 def show_todolist(request):
     data = Todolist.objects.all()
     context = {
-        'nama': 'Risa Lestari',
-        'studentId': "2106655274",
+        # 'nama': 'Risa Lestari',
+        # 'studentId': "2106655274",
         'last_login': request.COOKIES['last_login'],
         'todolists': data
     }
     return render(request, "todolist.html", context)
+
+def delete_todolist(request, id):
+    todolist = Todolist.objects.get(pk=id)
+    todolist.delete()
+    return redirect('todolist:show_todolist')
 
 
 def register(request):
@@ -65,5 +70,18 @@ def create_task(request):
         description = request.POST.get("description")
         create_new_task = Todolist(user=user, title=title, description=description)
         create_new_task.save()
+        return redirect('todolist:show_todolist')
 
     return render(request, "create_new_task.html")
+
+def finished(request, id):
+    item = Todolist.objects.get(pk=id)
+    item.is_finished = True
+    item.save()
+    return redirect('todolist:show_todolist')
+
+def unfinished(request, id):
+    item = Todolist.objects.get(pk=id)
+    item.is_finished = False
+    item.save()
+    return redirect('todolist:show_todolist')

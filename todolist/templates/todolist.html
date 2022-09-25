@@ -11,17 +11,37 @@
   <a href="{% url 'todolist:create-task' %}">Tambah Task Baru</a>
 </button>
 
-<table>
+<table border="1">
   <tr>
     <th>Tanggal Pembuatan Task</th>
     <th>Judul Task</th>
-    <th>deskripsi task</th>
+    <th>Deskripsi task</th>
+    <th>Status pengerjaan</th>
+    <th>Ubah</th>
   </tr>
   {% for todolist in todolists %}
   <tr>
     <td>{{todolist.date}}</td>
     <td>{{todolist.title}}</td>
     <td>{{todolist.description}}</td>
+    <td>
+      {% if todolist.is_finished %} Selesai {% else %} Belum Selesai {% endif %}
+    </td>
+    <td>
+      <button>
+        <a href="{% url 'todolist:unfinished' todolist.pk %}"> unfinished </a>
+      </button>
+    </td>
+    <td>
+      <button>
+        <a href="{% url 'todolist:finished' todolist.pk %}"> finished </a>
+      </button>
+    </td>
+    <td>
+      <button>
+        <a href="{% url 'todolist:delete-todolist' todolist.pk %}">Delete</a>
+      </button>
+    </td>
   </tr>
   {% endfor %}
 </table>

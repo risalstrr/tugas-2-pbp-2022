@@ -8,3 +8,4 @@ class Todolist(models.Model):
     date = models.DateField(datetime.now, default=datetime.now)
     title = models.CharField(max_length=300)
     description = models.TextField()
+    is_finished = models.BooleanField(default=False)
