@@ -18,7 +18,7 @@ Django Forms adalah seperangkat formulir HTML lanjutan yang dapat dibuat menggun
 
 from django import forms
 
-# creating a form
+## creating a form
 
 class InputForm(forms.Form):
 
@@ -32,22 +32,18 @@ class InputForm(forms.Form):
 Sekarang untuk merender formulir ini menjadi tampilan, pindah ke views.py dan buat home_view seperti di bawah ini.
 
 from django.shortcuts import render
+
 from .forms import InputForm
 
-# Create your views here.
+## Create your views here.
 
 def home_view(request):
-context ={}
-context['form']= InputForm()
-return render(request, "home.html", context)
 
-Lalu, di template html nya
+    context ={}
 
-<form action = "" method = "post">
-    {% csrf_token %}
-    {{form }}
-    <input type="submit" value=Submit">
-</form>
+    context['form']= InputForm()
+
+    return render(request, "home.html", context)
 
 Anda dapat mengecek hasil tampilan pada host dan port http://localhost:8000/
 
