@@ -74,12 +74,14 @@ def create_task(request):
 
     return render(request, "create_new_task.html")
 
+# if task is already finished
 def finished(request, id):
     item = Todolist.objects.get(pk=id)
     item.is_finished = True
     item.save()
     return redirect('todolist:show_todolist')
 
+# if task is not yet finished
 def unfinished(request, id):
     item = Todolist.objects.get(pk=id)
     item.is_finished = False
