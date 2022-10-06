@@ -78,13 +78,21 @@ Eksternal CSS adalah kode CSS yang ditulis terpisah dengan kode HTML Eksternal C
 ## Jelaskan tag HTML5 yang kamu ketahui.
 
 Tag !DOCTYPE untuk menentukan tipe dokumen
+
 Tag html untuk membuat sebuah dokumen HTML
+
 Tag title untuk membuat judul dari sebuah halaman
+
 Tag body untuk membuat tubuh dari sebuah halaman
+
 Tag p untuk membuat paragraf
+
 Tag br Memasukan satu baris putus
+
 Tag hr untuk membuat perubahan dasar kata didalam isi
+
 Tag untuk membuat komentar
+
 Tag center untuk membuat jajaran teks menjadi ditengah (tidak disupport lagi di HTML5)
 
 ## Jelaskan tipe-tipe CSS selector yang kamu ketahui.
