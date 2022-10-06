@@ -73,20 +73,19 @@ Inline CSS adalah kode CSS yang ditulis langsung pada atribut elemen HTML. Setia
 
 Internal CSS adalah kode CSS yang ditulis di dalam tag <style></style> dan kode HTML dituliskan di bagian atas (header) file HTML. Internal CSS dapat digunakan untuk membuat tampilan pada satu halaman website dan tidak digunakan pada halaman website yang lain. Cara ini akan sangat cocok dipakai untuk menciptakan halaman web dengan tampilan yang berbeda. Dengan kata lain, Internal CSS ini bisa dipakai untuk menciptakan tampilan yang unik, pada setiap halaman website.
 
-Eksternal CSS adalah kode CSS yang ditulis terpisah dengan kode HTML Eksternal CSS ditulis di sebuah file khusus yang berekstensi .css. File eksternal CSS biasanya diletakkan setelah bagian <head> pada halaman. Cara ini lebih sederhana dan simpel daripada menambahkan kode CSS di setiap elemen HTML yang ingin Anda atur tampilannya.
+Eksternal CSS adalah kode CSS yang ditulis terpisah dengan kode HTML Eksternal CSS ditulis di sebuah file khusus yang berekstensi .css. File eksternal CSS biasanya diletakkan setelah bagian head pada halaman. Cara ini lebih sederhana dan simpel daripada menambahkan kode CSS di setiap elemen HTML yang ingin Anda atur tampilannya.
 
 ## Jelaskan tag HTML5 yang kamu ketahui.
 
-<!DOCTYPE>	Tag untuk menentukan tipe dokumen
-<html>	Tag untuk membuat sebuah dokumen HTML
-<title>	Tag untuk membuat judul dari sebuah halaman
-<body>	Tag untuk membuat tubuh dari sebuah halaman
-<h1> to <h6>	Tag untuk membuat heading
-<p>	Tag untuk membuat paragraf
-<br>	Memasukan satu baris putus
-<hr>	Tag untuk membuat perubahan dasar kata didalam isi
-<!--...-->	Tag untuk membuat komentar
-<center>	Tag untuk membuat jajaran teks menjadi ditengah (tidak disupport lagi di HTML5)
+Tag !DOCTYPE untuk menentukan tipe dokumen
+Tag html untuk membuat sebuah dokumen HTML
+Tag title untuk membuat judul dari sebuah halaman
+Tag body untuk membuat tubuh dari sebuah halaman
+Tag p untuk membuat paragraf
+Tag br Memasukan satu baris putus
+Tag hr untuk membuat perubahan dasar kata didalam isi
+Tag untuk membuat komentar
+Tag center untuk membuat jajaran teks menjadi ditengah (tidak disupport lagi di HTML5)
 
 ## Jelaskan tipe-tipe CSS selector yang kamu ketahui.
 
