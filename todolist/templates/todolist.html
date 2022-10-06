@@ -1,48 +1,78 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Assignment PBP/PBD My ToDo Lists</h1>
-<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Assignment PBP/PBD My ToDo Lists</a>
+    <a class="btn btn-outline-success" href="{% url 'todolist:logout' %}"
+      >Logout</a
+    >
+  </div>
+</nav>
 
-<h5>Name: {{ nama }}</h5>
-<h5>Sesi terakhir login: {{ last_login }}</h5>
+<body>
+  <div class="py-5">
+    <div class="container">
+      <div class="m-3">
+        <h1>Hi, {{ nama }}!</h1>
+        <p>Sesi terakhir login: {{ last_login }}</p>
+        <a class="btn btn-secondary" href="{% url 'todolist:create-task' %}"
+          >Tambah Task Baru</a
+        >
+      </div>
 
-<button>
-  <a href="{% url 'todolist:create-task' %}">Tambah Task Baru</a>
-</button>
+      <div class="row">
+        {% for todolist in todolists %}
+        <div class="card cards col-m-3 m-3">
+          <div class="p-3">
+            <div class="card-block">
+              <h4
+                class="card-title text-center bg-info border border-1 rounded"
+              >
+                {{todolist.title}}
+              </h4>
+              <h6 class="card-subtitle text-muted text-center">
+                Tanggal Pembuatan Task: {{todolist.date}}
+              </h6>
+              <p class="card-text p-y-1">{{todolist.description}}</p>
+              <td>
+                <h4 class="card-title">
+                  {% if todolist.is_finished %}<span class="text-success">
+                    Selesai
+                  </span>
+                  {% else %}
+                  <span class="text-warning"> Belum Selesai </span> {% endif %}
+                </h4>
+              </td>
 
-<table border="1">
-  <tr>
-    <th>Tanggal Pembuatan Task</th>
-    <th>Judul Task</th>
-    <th>Deskripsi task</th>
-    <th>Status pengerjaan</th>
-    <th>Ubah</th>
-  </tr>
-  {% for todolist in todolists %}
-  <tr>
-    <td>{{todolist.date}}</td>
-    <td>{{todolist.title}}</td>
-    <td>{{todolist.description}}</td>
-    <td>
-      {% if todolist.is_finished %} Selesai {% else %} Belum Selesai {% endif %}
-    </td>
-    <td>
-      <button>
-        <a href="{% url 'todolist:unfinished' todolist.pk %}"> unfinished </a>
-      </button>
-    </td>
-    <td>
-      <button>
-        <a href="{% url 'todolist:finished' todolist.pk %}"> finished </a>
-      </button>
-    </td>
-    <td>
-      <button>
-        <a href="{% url 'todolist:delete-todolist' todolist.pk %}">Delete</a>
-      </button>
-    </td>
-  </tr>
-  {% endfor %}
-</table>
+              <a
+                class="btn btn-warning"
+                href="{% url 'todolist:unfinished' todolist.pk %}"
+              >
+                unfinished
+              </a>
+
+              <a
+                class="btn btn-success"
+                href="{% url 'todolist:finished' todolist.pk %}"
+              >
+                finished
+              </a>
+
+              <a
+                class="btn btn-danger"
+                href="{% url 'todolist:delete-todolist' todolist.pk %}"
+                >Delete</a
+              >
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+  <script src="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.min.js"></script>
+</body>
 
 {% endblock content %}

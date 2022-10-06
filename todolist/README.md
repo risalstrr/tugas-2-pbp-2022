@@ -64,3 +64,101 @@ Ketika user input data melalui form pada kolom input yang telah disediakan, lalu
 9. Membuat halaman form untuk pembuatan task. Data yang perlu dimasukkan pengguna hanyalah judul task dan deskripsi task.
 10. Membuat routing sehingga beberapa fungsi dapat diakses melalui URL
 11. Lakukan add, commit, dan push perubahan yang sudah dilakukan untuk menyimpannya ke dalam repositori GitHub dan auto deploy di heroku.
+
+## Tugas 5 PBP
+
+## Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
+
+Inline CSS adalah kode CSS yang ditulis langsung pada atribut elemen HTML. Setiap elemen HTML memiliki atribut style, di situ lah inline CSS ditulis. Cara ini kurang efisien karena setiap tag HTML yang diberikan harus memiliki style masing-masing. Anda akan lebih sulit dalam mengatur website jika hanya menggunakan inline style CSS. Sebab, Inline CSS digunakan hanya untuk mengubah satu elemen saja.
+
+Internal CSS adalah kode CSS yang ditulis di dalam tag <style></style> dan kode HTML dituliskan di bagian atas (header) file HTML. Internal CSS dapat digunakan untuk membuat tampilan pada satu halaman website dan tidak digunakan pada halaman website yang lain. Cara ini akan sangat cocok dipakai untuk menciptakan halaman web dengan tampilan yang berbeda. Dengan kata lain, Internal CSS ini bisa dipakai untuk menciptakan tampilan yang unik, pada setiap halaman website.
+
+Eksternal CSS adalah kode CSS yang ditulis terpisah dengan kode HTML Eksternal CSS ditulis di sebuah file khusus yang berekstensi .css. File eksternal CSS biasanya diletakkan setelah bagian <head> pada halaman. Cara ini lebih sederhana dan simpel daripada menambahkan kode CSS di setiap elemen HTML yang ingin Anda atur tampilannya.
+
+## Jelaskan tag HTML5 yang kamu ketahui.
+
+<!DOCTYPE>	Tag untuk menentukan tipe dokumen
+<html>	Tag untuk membuat sebuah dokumen HTML
+<title>	Tag untuk membuat judul dari sebuah halaman
+<body>	Tag untuk membuat tubuh dari sebuah halaman
+<h1> to <h6>	Tag untuk membuat heading
+<p>	Tag untuk membuat paragraf
+<br>	Memasukan satu baris putus
+<hr>	Tag untuk membuat perubahan dasar kata didalam isi
+<!--...-->	Tag untuk membuat komentar
+<center>	Tag untuk membuat jajaran teks menjadi ditengah (tidak disupport lagi di HTML5)
+
+## Jelaskan tipe-tipe CSS selector yang kamu ketahui.
+
+1. Selektor Tag
+   Selektor Tag disbut juga Type Selector. Selektor ini akan memilih elemen berdasarkan nama tag.
+
+p {
+color: blue;
+}
+
+Artinya: Pilih semua elemen <p> lalu atur warna teksnya menjadi biru.
+
+2. Selektor class adalah selektor yang memilih elemen berdasarkan nama class yang diberikan. Selektor class dibuat dengan tanda titik di depannya.
+
+Contoh:
+
+.pink {
+color: white;
+background: pink;
+padding: 5px;
+}
+
+Kita memiliki selektor class beranam .pink. Nah cara menggunakan selektor ini di HTML adalah dengan menambahkan atribut class di dalamnya.
+
+3. Selektor ID
+   Selektor ID hampir sama dengan class. Bedanya, ID bersifat unik. Hanya boleh digunakan oleh satu elemen saja.
+
+Selektor ID ditandai dengan tanda pagar (#) di depannya.
+
+Contoh:
+
+#header {
+background: teal;
+color: white;
+height: 100px;
+padding: 50px;
+}
+
+4. Selektor Atribut
+   Selektor atribut adalah selektor yang memilik elemen berdasarkan atribut. Selektor ini hampir sama seperti selektor Tag.
+
+Contoh selektor Atribut:
+
+input[type=text] {
+background: none;
+color: cyan;
+padding: 10px;
+border: 1px solid cyan;
+}
+
+Artinya kita akan memilih semua elemen <input> yang memiliki atribut type='text'.
+
+5. Selektor Universal
+   Selektor universal adalah selektor yang digunakan untuk menyeleksi semua elemen pada jangkaua (scope) tertentu.
+
+Contoh:
+
+- {
+  border: 1px solid grey;
+  }
+
+Artinya semua elemen akan memiliki garis solid dengan ukuran 1px dan berwarna grey.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+
+1. Menambahkan tag {% load staticfiles %} pada halaman HTML utama.
+2. Pada framework Django, terdapat file-file yang disebut dengan static files. Static files merupakan file-file pendukung HTML pada suatu situs web. Contoh static files antara lain seperti CSS, Javascript dan gambar. Pengaturan untuk static files terletak pada file settings.py.
+
+Pada settings.py, terdapat STATIC_ROOT yang menentukan absolute path ke direktori static files ketika menjalankan perintah collectstatic pada proyek dan terdapat STATIC_URL yang merupakan URL yang dapat diakses publik untuk memperoleh static files tersebut.
+
+Perintah collectstatic adalah perintah untuk mengumpulkan static files dari semua app sehingga mempermudah akses untuk semua app.
+
+3. Menambahkan barisan kode yang dibutuhkan agar aplikasi kita dapat menggunakan Bootstrap.
+
+4. Modifikasi pada tampilan aplikasi wishlist dengan menggunakan Bootstrap.
