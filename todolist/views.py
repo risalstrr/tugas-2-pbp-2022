@@ -1,3 +1,4 @@
+import json
 from re import T
 from django.shortcuts import render
 from django.shortcuts import redirect
@@ -10,6 +11,9 @@ import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from todolist.models import Todolist
+from django.http import HttpResponse, JsonResponse
+from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 @login_required(login_url='/todolist/login/')
@@ -22,6 +26,8 @@ def show_todolist(request):
     }
     return render(request, "todolist.html", context)
 
+@login_required(login_url='/todolist/login/')
+@csrf_exempt
 def delete_todolist(request, id):
     todolist = Todolist.objects.get(pk=id)
     todolist.delete()
@@ -56,12 +62,14 @@ def login_user(request):
     context = {}
     return render(request, 'login.html', context)
 
+
 def logout_user(request):
     logout(request)
     response = HttpResponseRedirect(reverse('todolist:login'))
     response.delete_cookie('last_login')
     return response
 
+@login_required(login_url='/todolist/login/')
 def create_task(request):
     if request.method == "POST":
         user = request.user
@@ -74,15 +82,44 @@ def create_task(request):
     return render(request, "create_new_task.html")
 
 # if task is already finished
+@login_required(login_url='/todolist/login/')
+@csrf_exempt
 def finished(request, id):
     item = Todolist.objects.get(pk=id)
-    item.is_finished = True
+    finished = not item.is_finished
+    item.is_finished = finished
     item.save()
-    return redirect('todolist:show_todolist')
+    return JsonResponse({"is_finished": finished})
 
-# if task is not yet finished
+# not implemented in assignment 6
+@login_required(login_url='/todolist/login/')
+@csrf_exempt
 def unfinished(request, id):
     item = Todolist.objects.get(pk=id)
-    item.is_finished = False
+    finished = not item.is_finished
+    item.is_finished = finished
     item.save()
-    return redirect('todolist:show_todolist')
+    return JsonResponse({"is_finished": finished})
+
+# get user data json
+def todolist_json(request):
+    data = Todolist.objects.filter(user = request.user)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+# create task using ajax
+@login_required(login_url='/todolist/login/')
+@csrf_exempt
+def create_task_ajax(request):
+    if request.method == "POST":
+        user = request.user
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+        create_new_task = Todolist(user=user, title=title, description=description)
+        create_new_task.save()
+
+        return JsonResponse({"pk" : create_new_task.pk, "fields": {
+            "date" : create_new_task.date,
+            "title" : create_new_task.title,
+            "description" : create_new_task.description,
+            "is_finished" : create_new_task.is_finished,
+        }})

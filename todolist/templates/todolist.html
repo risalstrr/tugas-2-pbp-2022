@@ -1,4 +1,94 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block meta %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $.get(window.location.href + "json/", function (data) {
+      for (idx = 0; idx < data.length; idx++) {
+        getData(data[idx]);
+        deleteData(data[idx]);
+        updateStatus(data[idx]);
+      }
+    });
+
+    $("#create-new-task").submit(function (event) {
+      event.preventDefault();
+      $.post(window.location.href + "create-task-ajax/", {
+        title: $("#title").val(),
+        description: $("#description").val(),
+      }).done(function (data) {
+        getData(data);
+        deleteData(data);
+        updateStatus(data);
+        $("#title").val(""), $("#description").val("");
+        const sectionCards = document.getElementById("todolist");
+        sectionCards.insertAdjacentHTML("beforestart", $(`#${data.pk}-card`));
+      });
+    });
+
+    function getData(data) {
+      $("#todolist").append(
+        `
+                  <div id="${data.pk}-card" class="card cards col-m-3 m-3">
+                    <div class="p-3">
+                      <div class="card-block">
+                        <h4
+                          class="card-title text-center bg-info border border-1 rounded"
+                        >
+                          ${data.fields.title}
+                        </h4>
+                        <h6 class="card-subtitle text-muted text-center">
+                          Tanggal Pembuatan Task: ${data.fields.date}
+                        </h6>
+                        <p class="card-text p-y-1">${
+                          data.fields.description
+                        }</p>
+                        <td>
+                          <h4 id="${data.pk}-status" class="card-title">
+                            ${
+                              data.fields.is_finished
+                                ? "selesai"
+                                : "belum selesai"
+                            }
+                          </h4>
+                        </td>
+                        <a id="${
+                          data.pk
+                        }-finished" class="btn btn-success"> Update Status </a>
+                        <a id="${
+                          data.pk
+                        }-delete" class="btn btn-danger">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                `
+      );
+    }
+
+    function updateStatus(data) {
+      $(`#${data.pk}-finished`).click(function () {
+        $.post(window.location.href + `finished/${data.pk}/`, {}).done(
+          (res) => {
+            const statusTodolist = res.is_finished
+              ? "selesai"
+              : "belum selesai";
+            $(`#${data.pk}-status`).text(statusTodolist);
+          }
+        );
+      });
+    }
+
+    function deleteData(data) {
+      $(`#${data.pk}-delete`).click(function () {
+        $.post(window.location.href + `delete-todolist/${data.pk}/`, {}).done(
+          (res) => {
+            $(`#${data.pk}-card`).fadeOut();
+          }
+        );
+      });
+    }
+  });
+</script>
+{% endblock meta %} {% block content %}
 
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
@@ -9,65 +99,55 @@
   </div>
 </nav>
 
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="card-title text-center">Create New Task</h4>
+      </div>
+      <div class="modal-body">
+        <form method="POST" id="create-new-task">
+          {% csrf_token %}
+          <table>
+            {{ form.as_table }}
+            <tr>
+              <td>Title:</td>
+              <td><input type="text" id="title" name="title" /></td>
+            </tr>
+            <tr>
+              <td>Description:</td>
+              <td><input type="text" id="description" name="description" /></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="submit" name="submit" value="Create" />
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <input class="btn btn-primary" data-dismiss="modal" value="close" />
+      </div>
+    </div>
+  </div>
+</div>
 <body>
   <div class="py-5">
     <div class="container">
       <div class="m-3">
         <h1>Hi, {{ nama }}!</h1>
         <p>Sesi terakhir login: {{ last_login }}</p>
-        <a class="btn btn-secondary" href="{% url 'todolist:create-task' %}"
+        <a
+          class="btn btn-secondary"
+          href=""
+          data-toggle="modal"
+          data-target="#myModal"
           >Tambah Task Baru</a
         >
       </div>
-
-      <div class="row">
-        {% for todolist in todolists %}
-        <div class="card cards col-m-3 m-3">
-          <div class="p-3">
-            <div class="card-block">
-              <h4
-                class="card-title text-center bg-info border border-1 rounded"
-              >
-                {{todolist.title}}
-              </h4>
-              <h6 class="card-subtitle text-muted text-center">
-                Tanggal Pembuatan Task: {{todolist.date}}
-              </h6>
-              <p class="card-text p-y-1">{{todolist.description}}</p>
-              <td>
-                <h4 class="card-title">
-                  {% if todolist.is_finished %}<span class="text-success">
-                    Selesai
-                  </span>
-                  {% else %}
-                  <span class="text-warning"> Belum Selesai </span> {% endif %}
-                </h4>
-              </td>
-
-              <a
-                class="btn btn-warning"
-                href="{% url 'todolist:unfinished' todolist.pk %}"
-              >
-                unfinished
-              </a>
-
-              <a
-                class="btn btn-success"
-                href="{% url 'todolist:finished' todolist.pk %}"
-              >
-                finished
-              </a>
-
-              <a
-                class="btn btn-danger"
-                href="{% url 'todolist:delete-todolist' todolist.pk %}"
-                >Delete</a
-              >
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
+      <div id="todolist" class="row"></div>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
